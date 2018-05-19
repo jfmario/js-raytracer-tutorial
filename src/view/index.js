@@ -1,8 +1,8 @@
 
 import Image from './image';
 import ImagePlane from './image-plane';
-import Ray from './ray';
-import Vector3 from './vector3';
+import Ray from '../data-structures/ray';
+import Vector3 from '../data-structures/vector3';
 
 class View {
   
@@ -63,8 +63,6 @@ class View {
         let pointray = this._bilinearInterpolation(x, y);
         image.putPixel(x, y, pointray.ray.direction.asColor().rescale(
           -1, 1, -0.75, 0.75));
-        console.log(pointray.point, pointray.ray.direction.asColor().rescale(
-          -1, 1, -0.75, 0.75))
       }
     }
     
