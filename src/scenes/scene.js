@@ -1,11 +1,12 @@
 
-import Sphere from '../geometry/sphere';
+import Color from '../data-structures/color';
 import Vector3 from '../data-structures/vector3';
+import Sphere from '../geometry/sphere';
+
 
 class Scene {
   
   constructor(xmin=-2, xmax=2, ymin=-1, ymax=-1, zmin=0, zmax=5) {
-    
     this.xmin = xmin;
     this.xmax = xmax;
     this.ymin = ymin;
@@ -13,6 +14,11 @@ class Scene {
     this.zmin = zmin;
     this.zmax = zmax;
     this.objects = [];
+    this.backgroundColor = new Color(0, 0, 0);
+  }
+  
+  getObjects() {
+    return this.objects;
   }
   
   generateRandomSpheres(amount=5) {

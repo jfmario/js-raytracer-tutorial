@@ -70,6 +70,21 @@ class View {
     
     return image;
   }
+  
+  viewScene(scene) {
+    
+    const image = new Image(this.W, this.H);
+    
+    for (let y = 0; y < this.H; y++) {
+      for (let x = 0; x < this.W; x++) {
+        
+        let pointray = this._bilinearInterpolation(x, y);
+        let color = scene.backgroundColor;
+        // loop through scene objects getting T-values
+        // add color for the lowest to value or add default color
+      }
+    }
+  }
 };
 
 export default View;
