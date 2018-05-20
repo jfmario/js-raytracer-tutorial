@@ -14,4 +14,5 @@ As of lesson 1, there is no `webpack.config.js`, just run webpack since
 ## Progress
 
 - [x] Lesson 1
-- [ ] Lesson 2
+- [x] Lesson 2
+- [ ] Lesson 3

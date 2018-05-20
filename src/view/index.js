@@ -80,10 +80,41 @@ class View {
         
         let pointray = this._bilinearInterpolation(x, y);
         let color = scene.backgroundColor;
-        // loop through scene objects getting T-values
-        // add color for the lowest to value or add default color
+        let objects = scene.getObjects();
+        let bestT = null;
+        let bestO = null;
+        
+        for (let i = 0; i < objects.length; ++i) {
+          
+          let o = objects[i];
+          let t = o.intersection(pointray.ray);
+          
+          if (t !== null) {
+            
+            // console.log(t);
+            
+            if (bestT === null) {
+              bestT = t;
+              bestO = o;
+            }
+            else {
+              if (t < bestT) {
+                bestT = t;
+                bestO = o;
+              }
+            }
+          }
+        }
+        
+        if (bestO !== null) {
+          // console.log(bestO.color);
+          color = bestO.color.normalized();
+        }
+        image.putPixel(x, y, color);
       }
     }
+    
+    return image;
   }
 };
 

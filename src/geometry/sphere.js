@@ -12,7 +12,7 @@ class Sphere {
   
   intersection(ray) {
     
-    let cPrime = ray.direction.origin._minus(this.center);
+    let cPrime = ray.origin._minus(this.center);
     
     // quadratic variables
     let a = ray.direction.length() * ray.direction.length();
@@ -39,4 +39,4 @@ class Sphere {
   }
 }
 
-export default Geometry;
+export default Sphere;
