@@ -41,9 +41,52 @@ class Sphere {
     return t;
   }
   
-  colorAtIntersection(t) {
+  colorAtIntersection(t, ray, scene = null) {
     
-    let pointOfIntersection = 
+    if (scene === null) return this.color;
+    
+    let pointOfIntersection = ray.origin._plus(ray.direction._scale(t));
+    let n = pointOfIntersection._minus(this.center);
+    
+    let surfaceNormal = n.normalized();
+    
+    // reflection of ambient light
+    let ambientLight = scene.ambientLightIntensity.asVector3()._times(
+      this.material.ambientConstant.asVector3());
+      
+    let color = this.color.asVector3();
+    
+    // check all lights hitting this point
+    for (var i = 0; i < scene.lights.length; ++i) {
+      
+      let light = scene.lights[i];
+      let lightVector = light.location._minus(pointOfIntersection).normalized();
+      
+      let normalizedLight = surfaceNormal._dot(lightVector);
+      
+      // ignore this light if light is hitting inside of sphere
+      if (normalizedLight < 0) continue;
+      
+      // calculate diffuse component
+      let diffuseComponent = light.diffuseIntensity.asVector3()._times(
+        this.material.diffuseConstant.asVector3())._scale(normalizedLight);
+        
+      // calculate specular component
+      let reflectiveness = surfaceNormal._scale(2 * normalizedLight)._minus(
+        lightVector);
+      let viewVector = pointOfIntersection._minus(scene._view.camera)
+        .normalized();
+      
+      let specularComponent = light.specularIntensity.asVector3()._times(
+        this.material.specularConstant.asVector3())._scale(
+        Math.pow(viewVector._dot(reflectiveness), this.material.shininess));
+      
+      // calculate color to return
+      color = color._plus(ambientLight)._plus(
+        diffuseComponent)._plus(specularComponent);
+    }
+    
+    return color.asColor().clamped().normalized();
   }
 }
 

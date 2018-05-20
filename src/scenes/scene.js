@@ -16,6 +16,8 @@ class Scene {
     this.zmax = zmax;
     this.lights = [];
     this.objects = [];
+    // temporary view placeholder
+    this._view = null;
     this.backgroundColor = new Color(0, 0, 0);
     this.ambientLightIntensity = new Color(0.2, 0.2, 0.2);
   }

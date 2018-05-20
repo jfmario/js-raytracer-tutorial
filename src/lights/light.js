@@ -17,3 +17,5 @@ class Light {
     else this.specularIntensity = specularIntesity;
   }
 }
+
+export default Light;

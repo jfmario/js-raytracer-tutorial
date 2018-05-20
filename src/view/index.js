@@ -75,6 +75,8 @@ class View {
     
     const image = new Image(this.W, this.H);
     
+    scene._view = this;
+    
     for (let y = 0; y < this.H; y++) {
       for (let x = 0; x < this.W; x++) {
         
@@ -108,7 +110,7 @@ class View {
         
         if (bestO !== null) {
           // console.log(bestO.color);
-          color = bestO.color.normalized();
+          color = bestO.colorAtIntersection(bestT, pointray.ray, scene);
         }
         image.putPixel(x, y, color);
       }

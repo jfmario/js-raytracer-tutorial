@@ -23,3 +23,5 @@ class Material {
     this.shininess = shininess;
   }
 }
+
+export default Material;

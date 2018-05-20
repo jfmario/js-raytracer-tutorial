@@ -1,4 +1,4 @@
 
-import main from './lessons/lesson02';
+import main from './lessons/lesson03';
 
 main();
