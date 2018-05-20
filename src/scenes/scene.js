@@ -24,12 +24,14 @@ class Scene {
         Math.random() * (this.zmax - this.zmin) + this.zmin
       );
       let radius = Math.random() * (1 - 0.1) + 0.1;
+      let r = Math.random();
+      let g = Math.random();
+      let b = Math.random();
       
-      let sphere = new Sphere(center, radius);
+      let sphere = new Sphere(center, radius, r, g, b);
       this.objects.push(sphere);
     }
   }
 }
 
-export default Scene;
 export default Scene;
