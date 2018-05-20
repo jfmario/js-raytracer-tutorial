@@ -1,8 +1,8 @@
 
 import Image from './image';
 import ImagePlane from './image-plane';
-import Ray from './ray';
-import Vector3 from './vector3';
+import Ray from '../data-structures/ray';
+import Vector3 from '../data-structures/vector3';
 
 class View {
   
@@ -63,12 +63,56 @@ class View {
         let pointray = this._bilinearInterpolation(x, y);
         image.putPixel(x, y, pointray.ray.direction.asColor().rescale(
           -1, 1, -0.75, 0.75));
-        console.log(pointray.point, pointray.ray.direction.asColor().rescale(
-          -1, 1, -0.75, 0.75))
       }
     }
     
     console.log(minX, maxX, minY, maxY);
+    
+    return image;
+  }
+  
+  viewScene(scene) {
+    
+    const image = new Image(this.W, this.H);
+    
+    for (let y = 0; y < this.H; y++) {
+      for (let x = 0; x < this.W; x++) {
+        
+        let pointray = this._bilinearInterpolation(x, y);
+        let color = scene.backgroundColor;
+        let objects = scene.getObjects();
+        let bestT = null;
+        let bestO = null;
+        
+        for (let i = 0; i < objects.length; ++i) {
+          
+          let o = objects[i];
+          let t = o.intersection(pointray.ray);
+          
+          if (t !== null) {
+            
+            // console.log(t);
+            
+            if (bestT === null) {
+              bestT = t;
+              bestO = o;
+            }
+            else {
+              if (t < bestT) {
+                bestT = t;
+                bestO = o;
+              }
+            }
+          }
+        }
+        
+        if (bestO !== null) {
+          // console.log(bestO.color);
+          color = bestO.color.normalized();
+        }
+        image.putPixel(x, y, color);
+      }
+    }
     
     return image;
   }

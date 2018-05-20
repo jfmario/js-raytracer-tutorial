@@ -25,6 +25,10 @@ class Vector3 {
     );
   }
   
+  _dot(other) {
+    return this.x * other.x + this.y * other.y + this.z * other.z;
+  }
+  
   _scale(i) {
     return new Vector3(
       i * this.x,
@@ -41,6 +45,9 @@ class Vector3 {
     return new Color(this.x, this.y, this.z);
   }
   
+  length() {
+    return Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z);
+  }
 }
 
 export default Vector3;

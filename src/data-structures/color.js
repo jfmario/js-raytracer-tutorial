@@ -19,10 +19,15 @@ class Color {
     let gRange = gmax - gmin;
     let bRange = bmax - bmin;
     
-    this.r = parseInt(((this.r - rmin) / rRange) * 255);
-    this.g = parseInt(((this.g - gmin) / gRange) * 255);
-    this.b = parseInt(((this.b - bmin) / bRange) * 255);
-    return this;
+    let r = parseInt(((this.r - rmin) / rRange) * 255);
+    let g = parseInt(((this.g - gmin) / gRange) * 255);
+    let b = parseInt(((this.b - bmin) / bRange) * 255);
+    
+    return new Color(r, g, b);
+  }
+  
+  normalized() {
+    return this.rescale(0, 1, 0, 1, 0, 1);
   }
 }
 
