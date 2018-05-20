@@ -1,13 +1,16 @@
 
 import Color from '../data-structures/color';
+import Material from '../data-structures/material';
 import Geometry from './geometry';
 
 class Sphere {
   
-  constructor(center, radius, r=1, g=1, b=1) {
+  constructor(center, radius, r=1, g=1, b=1, material=null) {
     this.center = center; // Vector3
     this.radius = radius; // Number
     this.color = new Color(r, g, b);
+    if (material === null) this.material = new Material();
+    else this.material = material;
   }
   
   intersection(ray) {
@@ -36,6 +39,11 @@ class Sphere {
     let t = t1;
     if (t2 < t1) t = t2;
     return t;
+  }
+  
+  colorAtIntersection(t) {
+    
+    let pointOfIntersection = 
   }
 }
 

@@ -1,6 +1,11 @@
 
 import Vector3 from './vector3';
 
+/**
+ * Class representing a color.
+ * For calculations this should use 0-1 for color.
+ * normalize() returns a copy with 0-255 instead.
+ */
 class Color {
   
   constructor(r, g, b) {
