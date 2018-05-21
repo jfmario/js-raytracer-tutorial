@@ -112,6 +112,7 @@ class View {
           // console.log(bestO.color);
           color = bestO.colorAtIntersection(bestT, pointray.ray, scene);
         }
+        
         image.putPixel(x, y, color);
       }
     }

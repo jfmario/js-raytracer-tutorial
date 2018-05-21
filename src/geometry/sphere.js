@@ -77,13 +77,22 @@ class Sphere {
       let viewVector = pointOfIntersection._minus(scene._view.camera)
         .normalized();
       
+      // should i do math.abs here to avoid NaN scales??
       let specularComponent = light.specularIntensity.asVector3()._times(
         this.material.specularConstant.asVector3())._scale(
-        Math.pow(viewVector._dot(reflectiveness), this.material.shininess));
+        Math.pow(Math.abs(viewVector._dot(reflectiveness)), this.material.shininess));
       
       // calculate color to return
       color = color._plus(ambientLight)._plus(
         diffuseComponent)._plus(specularComponent);
+      if (isNaN(color.x)) {
+        console.log(specularComponent,
+          viewVector,
+          reflectiveness,
+          viewVector._dot(reflectiveness),
+          this.material.shininess,
+          Math.pow(viewVector._dot(reflectiveness), this.material.shininess));
+      }
     }
     
     return color.asColor().clamped().normalized();

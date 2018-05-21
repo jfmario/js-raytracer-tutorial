@@ -8,8 +8,8 @@ function main() {
   
   let scene = new Scene();
   scene.randomizeAmbientLight();
-  scene.generateRandomLights();
-  scene.generateRandomSpheres();
+  scene.generateSideLights();
+  scene.generateRandomSpheres(2);
   let image = view.viewScene(scene);
   
   image.renderInto(document.querySelector('body'));
