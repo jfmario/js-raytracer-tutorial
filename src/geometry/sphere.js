@@ -1,6 +1,7 @@
 
 import Color from '../data-structures/color';
 import Material from '../data-structures/material';
+import Ray from '../data-structures/ray';
 import Vector3 from '../data-structures/vector3';
 import Geometry from './geometry';
 
@@ -54,7 +55,7 @@ class Sphere {
     let ambientLight = scene.ambientLightIntensity.asVector3()._times(
       this.material.ambientConstant.asVector3());
       
-    let color = new Vector3(0, 0, 0);
+    let color = new Vector3(0, 0, 0)._plus(ambientLight);
     
     // check all lights hitting this point
     for (var i = 0; i < scene.lights.length; ++i) {
@@ -66,6 +67,27 @@ class Sphere {
       
       // ignore this light if light is hitting inside of sphere
       if (normalizedLight < 0) continue;
+      
+      let shaded = false;
+      
+      // test shadow rays
+      for (let j = 0; j < scene.objects.length; ++j) {
+        
+        let otherSphere = scene.objects[j];
+        if (otherSphere == this) continue;
+        
+        let shadowRay = new Ray(pointOfIntersection, 
+          light.location._minus(pointOfIntersection));
+        if (otherSphere.intersection(shadowRay)) {
+          
+          shaded = true;
+          
+          break;
+        }
+      }
+      
+      // dont do diffuse or specular light from shaded lights
+      if (shaded) continue;
       
       // calculate diffuse component
       let diffuseComponent = light.diffuseIntensity.asVector3()._times(
@@ -83,7 +105,7 @@ class Sphere {
         Math.pow(Math.abs(viewVector._dot(reflectiveness)), this.material.shininess));
       
       // calculate color to return
-      color = color._plus(ambientLight)._plus(
+      color = color._plus(
         diffuseComponent)._plus(specularComponent);
       if (isNaN(color.x)) {
         console.log(specularComponent,
