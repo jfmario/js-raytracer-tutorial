@@ -1,14 +1,14 @@
 
 import Color from '../data-structures/color';
 import Material from '../data-structures/material';
+import Vector3 from '../data-structures/vector3';
 import Geometry from './geometry';
 
 class Sphere {
   
-  constructor(center, radius, r=1, g=1, b=1, material=null) {
+  constructor(center, radius, material=null) {
     this.center = center; // Vector3
     this.radius = radius; // Number
-    this.color = new Color(r, g, b);
     if (material === null) this.material = new Material();
     else this.material = material;
   }
@@ -54,7 +54,7 @@ class Sphere {
     let ambientLight = scene.ambientLightIntensity.asVector3()._times(
       this.material.ambientConstant.asVector3());
       
-    let color = this.color.asVector3();
+    let color = new Vector3(0, 0, 0);
     
     // check all lights hitting this point
     for (var i = 0; i < scene.lights.length; ++i) {

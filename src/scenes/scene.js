@@ -63,7 +63,7 @@ class Scene {
     for (let i = 0; i < amount; ++i) {
       let location = new Vector3(
         Math.random() * (this.xmax - this.xmin) + this.xmin,
-        1,
+        Math.random() * (this.ymax - this.ymin) + this.ymin,
         Math.random() * (this.zmax - this.zmin) + this.zmin
       );
       let iD = new Color(
@@ -165,7 +165,7 @@ class Scene {
       let shininess = Math.random() * 30;
       let material = new Material(ambientConstant, diffuseConstant,
         specularConstant, shininess);
-      let sphere = new Sphere(center, radius, r, g, b, material);
+      let sphere = new Sphere(center, radius, material);
       
       this.objects.push(sphere);
     }

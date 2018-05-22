@@ -8,7 +8,7 @@ function main() {
   
   let scene = new Scene();
   scene.randomizeAmbientLight();
-  scene.generateSideLights();
+  scene.generateBrightLights(1);
   scene.generateRandomSpheres(2);
   let image = view.viewScene(scene);
   
