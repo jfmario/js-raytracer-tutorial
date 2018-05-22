@@ -25,6 +25,14 @@ class Vector3 {
     );
   }
   
+  _times(other) {
+    return new Vector3(
+      this.x * other.x,
+      this.y * other.y,
+      this.z * other.z
+    );
+  }
+  
   _dot(other) {
     return this.x * other.x + this.y * other.y + this.z * other.z;
   }
@@ -47,6 +55,15 @@ class Vector3 {
   
   length() {
     return Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z);
+  }
+  
+  normalized() {
+    let mag = this.length();
+    return new Vector3(
+      this.x / mag,
+      this.y / mag,
+      this.z / mag
+    );
   }
 }
 
