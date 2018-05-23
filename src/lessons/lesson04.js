@@ -6,10 +6,10 @@ function main() {
   
   const view = View.createDefaultView();
   
-  let scene = new Scene();
+  let scene = new Scene(-2, 2, -2, 2, 1, 6);
   // scene.randomizeAmbientLight();
   scene.generateBrightLights(1);
-  scene.generateRandomSpheres(7);
+  scene.generateRandomSpheres(5);
   let image = view.viewScene(scene);
   
   image.renderInto(document.querySelector('body'));

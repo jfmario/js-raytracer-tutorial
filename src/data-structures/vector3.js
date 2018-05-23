@@ -54,7 +54,7 @@ class Vector3 {
   }
   
   length() {
-    return Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z);
+    return Math.sqrt(Math.abs(this.x * this.x + this.y * this.y + this.z * this.z));
   }
   
   normalized() {
