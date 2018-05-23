@@ -36,16 +36,41 @@ class View {
     
     let a = x / this.W;
     let b = (this.H - y - 1) / this.H;
+    let a2 = (x + 0.5) / this.W;
+    let b2 = (this.H - (y + 0.5) - 1) / this.H;
     let top = this.imagePlane.x1._linearInterpolation(this.imagePlane.x2,
       a);
     let bottom = this.imagePlane.x3._linearInterpolation(this.imagePlane.x4,
       a);
     let point = bottom._linearInterpolation(top, b);
     
-    return {
-      point: point,
-      ray: new Ray(point, point._minus(this.camera))
-    };
+    let top2 = this.imagePlane.x1._linearInterpolation(this.imagePlane.x2,
+      a2);
+    let bottom2 = this.imagePlane.x3._linearInterpolation(this.imagePlane.x4,
+      a2);
+    let point2 = bottom2._linearInterpolation(top2, b);
+    
+    let point3 = bottom._linearInterpolation(top, b2);
+    let point4 = bottom2._linearInterpolation(top2, b2);
+    
+    return [
+      {
+        point: point,
+        ray: new Ray(point, point._minus(this.camera))
+      },
+      {
+        point: point2,
+        ray: new Ray(point2, point2._minus(this.camera))
+      },
+      {
+        point: point3,
+        ray: new Ray(point3, point3._minus(this.camera))
+      },
+      {
+        point: point4,
+        ray: new Ray(point4, point4._minus(this.camera))
+      }
+    ];
   }
   
   // assignment1
@@ -60,7 +85,7 @@ class View {
     
     for (let y = 0; y < this.H; y++) {
       for (let x = 0; x < this.W; x++) {
-        let pointray = this._bilinearInterpolation(x, y);
+        let pointray = this._bilinearInterpolation(x, y)[0];
         image.putPixel(x, y, pointray.ray.direction.asColor().rescale(
           -1, 1, -0.75, 0.75));
       }
@@ -139,11 +164,16 @@ class View {
     for (let y = 0; y < this.H; y++) {
       for (let x = 0; x < this.W; x++) {
         
-        let pointray = this._bilinearInterpolation(x, y);
-        let color = this.getColor(pointray.ray, scene, 0);
+        let pointrays = this._bilinearInterpolation(x, y);
+        let color1 = this.getColor(pointrays[0].ray, scene, 0) || scene.backgroundColor;
+        let color2 = this.getColor(pointrays[1].ray, scene, 0) || scene.backgroundColor;
+        let color3 = this.getColor(pointrays[2].ray, scene, 0) || scene.backgroundColor;
+        let color4 = this.getColor(pointrays[3].ray, scene, 0) || scene.backgroundColor;
         
-        if (color === null) color = scene.backgroundColor;
-        else color = color.asColor().clamped().normalized();
+        let combo = color1._plus(color2)._plus(color3)._plus(color4);
+        let color = combo._scale(0.25);
+        
+        color = color.asColor().clamped().normalized();
         image.putPixel(x, y, color);
       }
     }
