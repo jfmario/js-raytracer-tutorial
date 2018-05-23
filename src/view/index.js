@@ -71,6 +71,65 @@ class View {
     return image;
   }
   
+  getColor(ray, scene, depth=0, currentObj=null) {
+    
+    if (depth > 3) return null;
+    
+    let objects = scene.getObjects();
+    let color = null;
+    let bestT = null;
+    let bestO = null;
+    
+    for (let i = 0; i < objects.length; ++i) {
+      
+      let o = objects[i];
+      if (currentObj == o) continue;
+      let t = o.intersection(ray);
+      
+      if (t !== null) {
+        
+        // console.log(t);
+        
+        if (bestT === null) {
+          bestT = t;
+          bestO = o;
+        }
+        else {
+          if (t < bestT) {
+            bestT = t;
+            bestO = o;
+          }
+        }
+      }
+    }
+    
+    if (bestO !== null) {
+      // console.log(bestO.color);
+      
+      let c = bestO.colorAtIntersection(bestT, ray, scene);
+      color = c.color;
+      // return color.asColor().clamped().normalized();
+      
+      let reverseDirection = ray.direction._scale(-1);
+      let reflectionVector = c.surfaceNormal
+        ._scale(2)
+        ._scale(c.surfaceNormal._dot(reverseDirection))
+        ._minus(reverseDirection);
+        
+      let reflectionRay = new Ray(c.pointOfIntersection, reflectionVector);
+      let reflectionColor = this.getColor(reflectionRay, scene, depth + 1, bestO);
+      
+      if (reflectionColor !== null) {
+        color = reflectionColor
+          ._times(bestO.material.reflectiveConstant.asVector3())
+          ._plus(color);
+      }
+    }
+    
+    if (color === null) return null;
+    return color;
+  }
+  
   viewScene(scene) {
     
     const image = new Image(this.W, this.H);
@@ -81,38 +140,10 @@ class View {
       for (let x = 0; x < this.W; x++) {
         
         let pointray = this._bilinearInterpolation(x, y);
-        let color = scene.backgroundColor;
-        let objects = scene.getObjects();
-        let bestT = null;
-        let bestO = null;
+        let color = this.getColor(pointray.ray, scene, 0);
         
-        for (let i = 0; i < objects.length; ++i) {
-          
-          let o = objects[i];
-          let t = o.intersection(pointray.ray);
-          
-          if (t !== null) {
-            
-            // console.log(t);
-            
-            if (bestT === null) {
-              bestT = t;
-              bestO = o;
-            }
-            else {
-              if (t < bestT) {
-                bestT = t;
-                bestO = o;
-              }
-            }
-          }
-        }
-        
-        if (bestO !== null) {
-          // console.log(bestO.color);
-          color = bestO.colorAtIntersection(bestT, pointray.ray, scene);
-        }
-        
+        if (color === null) color = scene.backgroundColor;
+        else color = color.asColor().clamped().normalized();
         image.putPixel(x, y, color);
       }
     }

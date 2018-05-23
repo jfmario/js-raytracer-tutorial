@@ -34,7 +34,7 @@ class Sphere {
     let t2 = ((0 - b) - Math.sqrt(discriminant)) / (2 * a);
     
     // intersection is behind image screen
-    if (t1 < 0 && t2 < 0) return null;
+    if (t1 <= 0 && t2 <= 0) return null;
     
     // get smaller t for closest intersection
     let t = t1;
@@ -42,7 +42,27 @@ class Sphere {
     return t;
   }
   
-  colorAtIntersection(t, ray, scene = null) {
+  colorAndIntersection(ray, scene, depth=0) {
+    
+    if (depth > 3) return null;
+    
+    var t = this.intersection(ray);
+    if (t === null) return null;
+    let c = this.colorAtIntersection(t, ray, scene);
+    
+    let newRay = null;
+    
+    let bestT = null;
+    let bestO = null;
+    
+    // reflection recursion
+    for (let i = 0; i < scene.objects.length; ++i) {
+      if (scene.objects[i] == this) continue;
+      t = null;
+    }
+  }
+  
+  colorAtIntersection(t, ray, scene = null, depth=0) {
     
     if (scene === null) return this.color;
     
@@ -96,7 +116,7 @@ class Sphere {
       // calculate specular component
       let reflectiveness = surfaceNormal._scale(2 * normalizedLight)._minus(
         lightVector);
-      let viewVector = pointOfIntersection._minus(scene._view.camera)
+      let viewVector = pointOfIntersection._minus(ray.origin)
         .normalized();
       
       // should i do math.abs here to avoid NaN scales??
@@ -108,16 +128,15 @@ class Sphere {
       color = color._plus(
         diffuseComponent)._plus(specularComponent);
       if (isNaN(color.x)) {
-        console.log(specularComponent,
-          viewVector,
-          reflectiveness,
-          viewVector._dot(reflectiveness),
-          this.material.shininess,
-          Math.pow(viewVector._dot(reflectiveness), this.material.shininess));
+        console.log(color, viewVector, pointOfIntersection._minus(ray.origin));
       }
     }
     
-    return color.asColor().clamped().normalized();
+    return {
+      color: color,
+      pointOfIntersection: pointOfIntersection,
+      surfaceNormal: surfaceNormal
+    };
   }
 }
 

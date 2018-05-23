@@ -163,8 +163,9 @@ class Scene {
         Math.random()
       );
       let shininess = Math.random() * 30;
+      let reflectiveness = Math.random();
       let material = new Material(ambientConstant, diffuseConstant,
-        specularConstant, shininess);
+        specularConstant, shininess, reflectiveness);
       let sphere = new Sphere(center, radius, material);
       
       this.objects.push(sphere);
