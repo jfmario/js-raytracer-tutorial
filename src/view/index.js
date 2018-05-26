@@ -100,6 +100,9 @@ class View {
     
     if (depth > 3) return null;
     
+    let cam = false;
+    if (depth == 0) cam = true;
+    
     let objects = scene.getObjects();
     let color = null;
     let bestT = null;
@@ -109,7 +112,7 @@ class View {
       
       let o = objects[i];
       if (currentObj == o) continue;
-      let t = o.intersection(ray);
+      let t = o.intersection(ray, cam);
       
       if (t !== null) {
         
@@ -131,25 +134,28 @@ class View {
     if (bestO !== null) {
       // console.log(bestO.color);
       
-      let c = bestO.colorAtIntersection(bestT, ray, scene);
+      let c = bestO.colorAtIntersection(bestT, ray, scene, depth, cam);
       color = c.color;
       // return color.asColor().clamped().normalized();
       
-      let reverseDirection = ray.direction._scale(-1);
-      let reflectionVector = c.surfaceNormal
-        ._scale(2)
-        ._scale(c.surfaceNormal._dot(reverseDirection))
-        ._minus(reverseDirection);
+      if (!bestO.light) {
+        let reverseDirection = ray.direction._scale(-1);
+        let reflectionVector = c.surfaceNormal
+          ._scale(2)
+          ._scale(c.surfaceNormal._dot(reverseDirection))
+          ._minus(reverseDirection);
+          
+        let reflectionRay = new Ray(c.pointOfIntersection, reflectionVector);
+        let reflectionColor = this.getColor(reflectionRay, scene, depth + 1, bestO);
         
-      let reflectionRay = new Ray(c.pointOfIntersection, reflectionVector);
-      let reflectionColor = this.getColor(reflectionRay, scene, depth + 1, bestO);
-      
-      if (reflectionColor !== null) {
-        color = reflectionColor
-          ._times(bestO.material.reflectiveConstant.asVector3())
-          ._plus(color);
+        if (reflectionColor !== null) {
+          color = reflectionColor
+            ._times(bestO.material.reflectiveConstant.asVector3())
+            ._plus(color);
+        }
       }
     }
+    
     
     if (color === null) return null;
     return color;

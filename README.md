@@ -15,4 +15,12 @@ As of lesson 1, there is no `webpack.config.js`, just run webpack since
 
 - [x] Lesson 1
 - [x] Lesson 2
-- [ ] Lesson 3
+- [x] Lesson 3
+- [x] Lesson 4
+- [x] Lesson 5
+- [x] Lesson 6
+- [ ] Create Visible Light Sources
+- [ ] Try with bigger image
+- [ ] Try skewed camera
+- [ ] Make camera motion button presses
+- [ ] 
