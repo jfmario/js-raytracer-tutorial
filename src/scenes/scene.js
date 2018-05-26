@@ -2,6 +2,7 @@
 import Color from '../data-structures/color';
 import Material from '../data-structures/material';
 import Vector3 from '../data-structures/vector3';
+import LightSphere from '../geometry/light-sphere';
 import Sphere from '../geometry/sphere';
 import Light from '../lights/light';
 
@@ -75,6 +76,7 @@ class Scene {
       let light = new Light(location, iD, iS);
       
       this.lights.push(light);
+      this.objects.push(new LightSphere(light));
     }
   }
   

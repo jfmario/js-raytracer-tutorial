@@ -10,6 +10,7 @@ function main() {
   // scene.randomizeAmbientLight();
   scene.generateBrightLights(2);
   scene.generateRandomSpheres(5);
+
   let image = view.viewScene(scene);
   
   image.renderInto(document.querySelector('body'));
