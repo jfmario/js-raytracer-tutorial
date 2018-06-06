@@ -1,10 +1,10 @@
 
-import Color from '../data-structures/color';
-import Material from '../data-structures/material';
-import Vector3 from '../data-structures/vector3';
-import LightSphere from '../geometry/light-sphere';
-import Sphere from '../geometry/sphere';
-import Light from '../lights/light';
+const Color = require('../data-structures/color')
+const Material = require('../data-structures/material')
+const Vector3 = require('../data-structures/vector3')
+const LightSphere = require('../geometry/light-sphere')
+const Sphere = require('../geometry/sphere')
+const Light = require('../lights/light')
 
 class Scene {
   
@@ -35,30 +35,6 @@ class Scene {
     );
   }
   
-  generateRandomLights(amount=2) {
-    
-    for (let i = 0; i < amount; ++i) {
-      let location = new Vector3(
-        Math.random() * (this.xmax - this.xmin) + this.xmin,
-        Math.random() * (this.ymax - this.ymin) + this.ymin,
-        Math.random() * (this.zmax - this.zmin) + this.zmin
-      );
-      let iD = new Color(
-        Math.random(),
-        Math.random(),
-        Math.random()
-      );
-      let iS = new Color(
-        Math.random(),
-        Math.random(),
-        Math.random()
-      );
-      let light = new Light(location, iD, iS);
-      
-      this.lights.push(light);
-    }
-  }
-  
   generateBrightLights(amount=2) {
     
     for (let i = 0; i < amount; ++i) {
@@ -78,63 +54,6 @@ class Scene {
       this.lights.push(light);
       this.objects.push(new LightSphere(light));
     }
-  }
-  
-  generateColoredLights(amount=2, r=0.9, g=0.9, b=0.9) {
-    
-    for (let i = 0; i < amount; ++i) {
-      let location = new Vector3(
-        this.xmin,
-        Math.random() * (this.ymax - this.ymin) + this.ymin,
-        Math.random() * (this.zmax - this.zmin) + this.zmin
-      );
-      let iD = new Color(
-        r, g, b
-      );
-      let iS = new Color(
-        0.8, 0.8, 0.8
-      );
-      let light = new Light(location, iD, iS);
-      
-      this.lights.push(light);
-    }
-  }
-  
-  generateSideLights() {
-    
-    let location = new Vector3(
-      this.xmin,
-      Math.random() * (this.ymax - this.ymin) + this.ymin,
-      Math.random() * (this.zmax - this.zmin) + this.zmin
-    );
-    let iD = new Color(
-      Math.random(),
-      Math.random(),
-      Math.random()
-    );
-    let iS = new Color(
-      0.8, 0.8, 0.8
-    );
-    let light = new Light(location, iD, iS);
-    
-    this.lights.push(light);
-    
-    let location2 = new Vector3(
-      this.xmax,
-      Math.random() * (this.ymax - this.ymin) + this.ymin,
-      Math.random() * (this.zmax - this.zmin) + this.zmin
-    );
-    let iD2 = new Color(
-      Math.random(),
-      Math.random(),
-      Math.random()
-    );
-    let iS2 = new Color(
-      0.8, 0.8, 0.8
-    );
-    let light2 = new Light(location2, iD2, iS2);
-    
-    this.lights.push(light2);
   }
   
   generateRandomSpheres(amount=5) {
@@ -173,6 +92,27 @@ class Scene {
       this.objects.push(sphere);
     }
   }
+  
+  addGiantEarth() {
+    this.objects.push(
+      new Sphere(
+        new Vector3(0, -501, 1), 500,
+        new Material(
+          new Color(0.2, 0.2, 0.2), new Color(0, 0.75, 0), new Color(0.4, 0.4, 0.4),
+          10, 0.75)
+      )
+    );
+  }
+  addTree() {
+    let wood = new Material(
+      new Color(0.64, 0.16, 0.16), new Color(0.64, 0.16, 0.16), new Color(0.4, 0.4, 0.4),
+      10, 0
+    );
+    this.objects.push(new Sphere(new Vector3(0, -0.5, 1), 0.5, wood));
+    this.objects.push(new Sphere(new Vector3(0, 0.5, 1), 0.5, wood));
+    this.objects.push(new Sphere(new Vector3(0, 1.5, 1), 0.5, wood));
+    this.objects.push(new Sphere(new Vector3(0, 2.5, 1), 0.5, wood));
+  }
 }
 
-export default Scene;
+module.exports = Scene;

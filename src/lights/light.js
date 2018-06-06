@@ -1,5 +1,5 @@
 
-import Color from '../data-structures/color';
+const Color = require('../data-structures/color');
 
 class Light {
   
@@ -18,4 +18,4 @@ class Light {
   }
 }
 
-export default Light;
+module.exports = Light;

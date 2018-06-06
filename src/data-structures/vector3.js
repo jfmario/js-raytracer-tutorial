@@ -1,5 +1,5 @@
 
-import Color from './color';
+const Color = require('./color');
 
 class Vector3 {
   
@@ -15,6 +15,9 @@ class Vector3 {
       this.y + other.y,
       this.z + other.z
     );
+  }
+  plus(other) {
+    return this._plus(other);
   }
   
   _minus(other) {
@@ -67,4 +70,4 @@ class Vector3 {
   }
 }
 
-export default Vector3;
+module.exports = Vector3;

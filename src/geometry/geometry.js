@@ -1,5 +1,5 @@
 
-import Color from '../data-structures/color';
+const Color = require('../data-structures/color');
 
 class Geometry {
   
@@ -17,4 +17,4 @@ class Geometry {
   }
 }
 
-export default Geometry;
+module.exports = Geometry;

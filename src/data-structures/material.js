@@ -1,5 +1,5 @@
 
-import Color from './color';
+const Color = require('./color');
 
 class Material {
   
@@ -31,4 +31,4 @@ class Material {
   }
 }
 
-export default Material;
+module.exports = Material;

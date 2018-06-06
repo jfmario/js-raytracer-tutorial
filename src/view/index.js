@@ -1,8 +1,8 @@
 
-import Image from './image';
-import ImagePlane from './image-plane';
-import Ray from '../data-structures/ray';
-import Vector3 from '../data-structures/vector3';
+const Image = require('./image')
+const ImagePlane = require('./image-plane')
+const Ray = require('../data-structures/ray');
+const Vector3 = require('../data-structures/vector3')
 
 class View {
   
@@ -23,7 +23,7 @@ class View {
     );
     const camera = new Vector3(0, 0, -1);
     
-    return new View(camera, imagePlane, 256, 192);
+    return new View(camera, imagePlane, 512, 384);
   }
   
   /**
@@ -161,9 +161,11 @@ class View {
     return color;
   }
   
-  viewScene(scene) {
+  async viewScene(scene) {
     
     const image = new Image(this.W, this.H);
+    
+    await image.init();
     
     scene._view = this;
     
@@ -188,4 +190,4 @@ class View {
   }
 };
 
-export default View;
+module.exports = View;

@@ -1,6 +1,6 @@
 
-import Sphere from './sphere';
-import Vector3 from '../data-structures/vector3';
+const Sphere = require('./sphere');
+const Vector3 = require('../data-structures/vector3');
 
 class LightSphere extends Sphere {
   
@@ -25,4 +25,4 @@ class LightSphere extends Sphere {
   }
 }
 
-export default LightSphere;
+module.exports = LightSphere;

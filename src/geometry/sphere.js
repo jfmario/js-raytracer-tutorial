@@ -1,9 +1,8 @@
 
-import Color from '../data-structures/color';
-import Material from '../data-structures/material';
-import Ray from '../data-structures/ray';
-import Vector3 from '../data-structures/vector3';
-import Geometry from './geometry';
+const Color = require('../data-structures/color');
+const Material = require('../data-structures/material');
+const Ray = require('../data-structures/ray');
+const Vector3 = require('../data-structures/vector3');
 
 class Sphere {
   
@@ -140,4 +139,4 @@ class Sphere {
   }
 }
 
-export default Sphere;
+module.exports = Sphere;

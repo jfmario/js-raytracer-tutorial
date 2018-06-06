@@ -1,5 +1,5 @@
 
-import Vector3 from './vector3';
+
 
 /**
  * Class representing a color.
@@ -15,6 +15,7 @@ class Color {
   }
   
   asVector3() {
+    const Vector3 = require('./vector3');
     return new Vector3(this.r, this.g, this.b);
   }
   
@@ -52,4 +53,4 @@ class Color {
   }
 }
 
-export default Color;
+module.exports = Color;

@@ -7,4 +7,4 @@ class Ray {
   }
 }
 
-export default Ray;
+module.exports = Ray;

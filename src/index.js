@@ -1,4 +1,4 @@
 
-import main from './lessons/lesson04';
+const main = require('./lessons/lesson04')
 
 main();
