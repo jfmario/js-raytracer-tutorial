@@ -1,20 +1,19 @@
 
 const Vector3 = require('../data-structures/vector3');
 
-const Scene = require('../scenes/scene');
+const SolarSystem = require('../scenes/solar-system');
 
 const ImagePlane = require('../view/image-plane');
 const View = require('../view');
 
 async function main() {
   
-  let scene = new Scene(-2, 2, -2, 2, 1, 6);
+  let scene = new SolarSystem();
   // scene.randomizeAmbientLight();
-  scene.generateBrightLights(1);
-  scene.addGiantEarth();
-  scene.addTree();
   
+  let views = scene.getViews();
   
+  /**
   const view = View.createDefaultView();
   
   const farView = new View(
@@ -120,40 +119,16 @@ async function main() {
     ip,
     512, 384
   );
+  */
   
-  
-  
-  console.log("Writing main image.");
-  let image = await view.viewScene(scene);
-  image.writeImage("out/main.png");
-  
-  console.log("Writing far image.");
-  image = await farView.viewScene(scene);
-  image.writeImage("out/far.png");
-  
-  console.log("Writing left image.");
-  image = await leftSideView.viewScene(scene);
-  image.writeImage("out/left.png");
-  
-  console.log("Writing right image.");
-  image = await rightSideView.viewScene(scene);
-  image.writeImage("out/right.png");
-  
-  console.log("Writing reverse image.");
-  image = await reverseView.viewScene(scene);
-  image.writeImage("out/reverse.png");
-  
-  console.log("Writing top image.");
-  image = await topView.viewScene(scene);
-  image.writeImage("out/top.png");
-  
-  console.log("Writing bottom image.");
-  image = await bottomView.viewScene(scene);
-  image.writeImage("out/bottom.png");
-  
-  console.log("Writing random view image.");
-  image = await randomView.viewScene(scene);
-  image.writeImage("out/random.png");
+  for (var i = 0; i < views.length; ++i) {
+    
+    var view = views[i];
+    
+    console.log(`Writing view ${i}.`);
+    let image = await view.viewScene(scene);
+    image.writeImage(`out/v${i}.png`);
+  }
 
 }
 module.exports =  main;

@@ -4,9 +4,11 @@ const Vector3 = require('../data-structures/vector3');
 
 class LightSphere extends Sphere {
   
-  constructor(light) {
-    super(light.location, 0.4);
+  constructor(light, radius=0.4, color=null) {
+    super(light.location, radius);
     this.light = light;
+    if (color == null) this.color = light.diffuseIntensity.asVector3();
+    else this.color = color;
   }
   
   // only respond if the ray is from the camera
@@ -20,7 +22,7 @@ class LightSphere extends Sphere {
   colorAtIntersection(t, ray, scene, depth=0, direct=false) {
     if (!direct) return null;
     else return {
-      color: new Vector3(1, 1, 0.5)
+      color: this.color
     };
   }
 }
