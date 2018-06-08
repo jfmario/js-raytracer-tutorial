@@ -3,10 +3,10 @@ const Color = require('../data-structures/color')
 const Material = require('../data-structures/material')
 const Vector3 = require('../data-structures/vector3')
 
-const LightSphere = require('../geometry/light-sphere')
-const Sphere = require('../geometry/sphere')
+const LightSphere = require('../geometry/light-sphere');
+const Sphere = require('../geometry/sphere');
 
-const Light = require('../lights/light')
+const Light = require('../lights/light');
 
 const ImagePlane = require('../view/image-plane');
 const View = require('../view');
