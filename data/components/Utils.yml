@@ -1,0 +1,8 @@
+
+MirrorBall:
+  size: .8
+  ambient: [.78, .859, .863]
+  diffuse: [.8, .8, .8]
+  spec: [.78, .859, .863]
+  shine: 30
+  reflect: 1
