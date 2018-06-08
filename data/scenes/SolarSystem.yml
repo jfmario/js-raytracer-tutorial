@@ -1,0 +1,11 @@
+
+importObjects:
+  - SolarSystem
+
+place:
+  
+  - name: SolarSystem
+    obj: SolarSystem.SolarSystem1
+    loc: [ 0, 0, 0 ]
+    
+pictures: 8

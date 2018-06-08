@@ -1,0 +1,82 @@
+
+importComponents:
+  - SolarSystem
+
+define:
+  SolarSystem1:
+    place:
+    
+      - name: Sun
+        obj: SolarSystem.Sun
+        loc: [0, 0, 0]
+      
+      - name: Mercury
+        obj: SolarSystem.Mercury
+        loc:
+          from: Sun
+          random: [ [ -1, 1 ], [ 0, 0 ], [ -1, 1 ] ]
+          scale: [3, 0, 3]
+          
+      - name: Venus
+        obj: SolarSystem.Venus
+        loc:
+          from: Sun
+          random: [ [ -1, 1 ], [ 0, 0 ], [ -1, 1 ] ]
+          scale: [5, 0, 5]
+      
+      - name: Earth
+        obj: SolarSystem.Earth
+        loc:
+          from: Sun
+          random: [ [ -1, 1 ], [ 0, 0 ], [ -1, 1 ] ]
+          scale: [7, 0, 7]
+      
+      - name: Moon
+        obj: SolarSystem.Moon
+        loc:
+          from: Earth
+          random: [ [ -1, 1 ], [ 0, 0 ], [ -1, 1 ] ]
+          scale: [1.5, 0, 1.5]
+          
+      - name: Mars
+        obj: SolarSystem.Mars
+        loc:
+          from: Sun
+          random: [ [ -1, 1 ], [ 0, 0 ], [ -1, 1 ] ]
+          scale: [9, 0, 9]
+          
+      - name: Jupiter
+        obj: SolarSystem.Jupiter
+        loc:
+          from: Sun
+          random: [ [ -1, 1 ], [ 0, 0 ], [ -1, 1 ] ]
+          scale: [12, 0, 12]
+      
+      - name: Saturn
+        obj: SolarSystem.Saturn
+        loc:
+          from: Sun
+          random: [ [ -1, 1 ], [ 0, 0 ], [ -1, 1 ] ]
+          scale: [15, 0, 15]
+          
+      - name: Uranus
+        obj: SolarSystem.Uranus
+        loc:
+          from: Sun
+          random: [ [ -1, 1 ], [ 0, 0 ], [ -1, 1 ] ]
+          scale: [18, 0, 18]
+      
+      - name: Neptune
+        obj: SolarSystem.Neptune
+        loc:
+          from: Sun
+          random: [ [ -1, 1 ], [ 0, 0 ], [ -1, 1 ] ]
+          scale: [21, 0, 21]
+          
+      - name: Pluto
+        obj: SolarSystem.Mercury
+        loc:
+          from: Sun
+          random: [ [ -1, 1 ], [ 0, 0 ], [ -1, 1 ] ]
+          scale: [21, 0, 21]
+  
