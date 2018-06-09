@@ -1,0 +1,15 @@
+
+importComponents:
+  -  Lights
+
+define:
+  Flame:
+    place:
+      - name: Light
+        obj: Lights.Flame
+        loc: [0, 1, 0]
+  WhiteLight:
+    place:
+      - name: Light
+        obj: Lights.WhiteLight
+        loc: [0, 0, 0]

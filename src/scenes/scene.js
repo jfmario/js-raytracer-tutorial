@@ -9,6 +9,45 @@ const Light = require('../lights/light')
 const ImagePlane = require('../view/image-plane');
 const View = require('../view');
 
+const BRICK = new Material(
+  new Color(.3, .13, .13),
+  new Color(.7, .13, .13),
+  new Color(.5, .13, .13),
+  5, 0
+);
+
+const DIRT = new Material(
+  new Color(.3, .3, .23),
+  new Color(.51, .36, .23),
+  new Color(.5, .36, .23),
+  0, 0
+);
+
+const GRASS = new Material(
+  new Color(0.2, 0.5, 0.2),
+  new Color(.2, 1, .2),
+  new Color(.2, .5, .2),
+  5, 0
+);
+
+const SAND = new Material(
+  new Color(.3, .3, .3),
+  new Color(.76, .7, .5),
+  new Color(.5, .5, .5),
+  5, 0
+);
+
+const STONE = new Material(
+  new Color(0.3, 0.3, 0.3),
+  new Color(.5, .5, .5),
+  new Color(.5, .5, .5),
+  5, 0
+)
+
+const TURF = {
+  brick: BRICK, dirt: DIRT, grass: GRASS, sand: SAND, stone: STONE
+};
+
 class Scene {
   
   constructor(xmin=-2, xmax=2, ymin=-1, ymax=1, zmin=0, zmax=5) {
@@ -29,6 +68,20 @@ class Scene {
   fromConfig(components, objects, scene) {
     
     let sceneObjects = {};
+    
+    if (scene.hasOwnProperty('layTurf')) {
+      
+      let m = TURF[scene.layTurf.type] || GRASS;
+      
+      for (let tx = 0 - scene.layTurf.x; tx < 0 + scene.layTurf.x; ++tx) {
+        for (let tz = 0 - scene.layTurf.z; tz < 0 + scene.layTurf.z; ++tz) {
+          
+          let center = new Vector3(0 + 0.5 * tx, 0, 0 + 0.5 * tz);
+          
+          this.objects.push(new Sphere(center, 0.5, m));
+        }
+      }
+    }
     
     for (var i = 0; i < scene.place.length; ++i) {
       
@@ -97,6 +150,9 @@ class Scene {
               componentDefinition.light.spec[2])
           );
           this.lights.push(thisLight);
+          
+          if (componentDefinition.noSphere) continue;
+          
           let thisSphere = new LightSphere(thisLight, componentDefinition.size);
           
           objectComponents[placementComponent.name] = thisSphere;

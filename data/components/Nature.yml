@@ -1,0 +1,50 @@
+
+FlowerRed:
+  size: .2
+  ambient: [.3, 0, 0]
+  diffuse: [1, 0, 0]
+  spec: [.2, .2, .2]
+  shine: 5
+
+Grass:
+  size: .5
+  ambient: [.2, .5, .2]
+  diffuse: [0, 1, 0]
+  spec: [.2, .5, .2]
+  shine: 5
+  
+Hay:
+  size: .1
+  ambient: [.3, .3, 0]
+  diffuse: [1, .75, 0]
+  spec: [.5, .5, .2]
+  shine: 5
+  
+Ice:
+  size: .5
+  ambient: [.4, .4, .4]
+  diffuse: [.9, .9, .9]
+  spec: [.5, .5, .5]
+  shine: 5
+  reflect: .8
+  
+Stem:
+  size: .1
+  ambient: [.2, .5, .2]
+  diffuse: [0, 1, 0]
+  spec: [.2, .5, .2]
+  shine: 5
+  
+Stick:
+  size: .1
+  ambient: [.5, .4, .2]
+  diffuse: [0.59, 0.44, .2]
+  spec: [.5, .44, .2]
+  shine: 5
+
+Wood:
+  size: .5
+  ambient: [.5, .4, .2]
+  diffuse: [0.59, 0.44, .2]
+  spec: [.5, .44, .2]
+  shine: 5

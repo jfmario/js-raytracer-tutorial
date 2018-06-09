@@ -1,0 +1,236 @@
+
+importComponents:
+  -  Nature
+
+define:
+  Bush:
+    place:
+      - name: Stick
+        obj: Nature.Stick
+        loc: [0, .6, 0]
+      - name: Stick
+        obj: Nature.Stick
+        loc:
+          from: Stick
+          dir: [0, .2, 0]
+      - name: Grass
+        obj: Nature.Grass
+        loc:
+          from: Stick
+          dir: [0, .6, 0]
+  Cactus:
+    place:
+      - name: Body
+        obj: Nature.Grass
+        loc: [0, 1, 0]
+      - name: Body
+        obj: Nature.Grass
+        loc:
+          from: Body
+          dir: [0, 1, 0]
+      - name: Body
+        obj: Nature.Grass
+        loc:
+          from: Body
+          dir: [0, 1, 0]
+      - name: Left
+        obj: Nature.Grass
+        loc:
+          from: Body
+          dir: [-1, 0, 0]
+      - name: Right
+        obj: Nature.Grass
+        loc:
+          from: Body
+          dir: [1, 0, 0]
+      - name: Left
+        obj: Nature.Grass
+        loc:
+          from: Left
+          dir: [-1, 0, 0]
+      - name: Right
+        obj: Nature.Grass
+        loc:
+          from: Right
+          dir: [1, 0, 0]
+      - name: Body
+        obj: Nature.Grass
+        loc:
+          from: Body
+          dir: [0, 1, 0]
+      - name: Body
+        obj: Nature.Grass
+        loc:
+          from: Body
+          dir: [0, 1, 0]
+      - name: Left
+        obj: Nature.Grass
+        loc:
+          from: Left
+          dir: [0, 1, 0]
+      - name: Right
+        obj: Nature.Grass
+        loc:
+          from: Right
+          dir: [0, 1, 0]
+  
+  GrassPatch:
+    place:
+      - name: Stem
+        obj: Nature.Stem
+        loc: [0, .6, 0]
+      - name: Stem
+        obj: Nature.Stem
+        loc:
+          from: Stem
+          dir: [0, .2, 0]
+      - name: Stem
+        obj: Nature.Stem
+        loc:
+          from: Stem
+          dir: [0, .2, 0]
+          
+      - name: Stem
+        obj: Nature.Stem
+        loc: [-0.3, .6, -0.3]
+      - name: Stem
+        obj: Nature.Stem
+        loc:
+          from: Stem
+          dir: [0, .2, 0]
+      - name: Stem
+        obj: Nature.Stem
+        loc:
+          from: Stem
+          dir: [0, .2, 0]
+          
+      - name: Stem
+        obj: Nature.Stem
+        loc: [0.3, .6, 0.3]
+      - name: Stem
+        obj: Nature.Stem
+        loc:
+          from: Stem
+          dir: [0, .2, 0]
+      - name: Stem
+        obj: Nature.Stem
+        loc:
+          from: Stem
+          dir: [0, .2, 0]
+  
+  RedFlower:
+    place:
+      - name: Stem
+        obj: Nature.Stem
+        loc: [0, .6, 0]
+      - name: Stem
+        obj: Nature.Stem
+        loc:
+          from: Stem
+          dir: [0, .2, 0]
+      - name: Stem
+        obj: Nature.Stem
+        loc:
+          from: Stem
+          dir: [0, .2, 0]
+      - name: Stem
+        obj: Nature.Stem
+        loc:
+          from: Stem
+          dir: [0, .2, 0]
+      - name: Flower
+        obj: Nature.FlowerRed
+        loc:
+          from: Stem
+          dir: [0, .3, 0]
+  Tree:
+    place:
+      - name: Wood
+        obj: Nature.Wood
+        loc: [0, 1, 0]
+      - name: Wood
+        obj: Nature.Wood
+        loc:
+          from: Wood
+          dir: [0, 1, 0]
+      - name: Wood
+        obj: Nature.Wood
+        loc:
+          from: Wood
+          dir: [0, 1, 0]
+      - name: Wood
+        obj: Nature.Wood
+        loc:
+          from: Wood
+          dir: [0, 1, 0]
+      
+      - name: Leaf
+        obj: Nature.Grass
+        loc:
+          from: Wood
+          dir: [1, 0, 0]
+      - name: Leaf
+        obj: Nature.Grass
+        loc:
+          from: Wood
+          dir: [-1, 0, 0]
+      - name: Leaf
+        obj: Nature.Grass
+        loc:
+          from: Wood
+          dir: [0, 0, 1]
+      - name: Leaf
+        obj: Nature.Grass
+        loc:
+          from: Wood
+          dir: [0, 0, -1]
+      - name: Leaf
+        obj: Nature.Grass
+        loc:
+          from: Wood
+          dir: [0, 1, 0]
+          
+  WheatPatch:
+    place:
+      - name: Stem
+        obj: Nature.Hay
+        loc: [0, .6, 0]
+      - name: Stem
+        obj: Nature.Hay
+        loc:
+          from: Stem
+          dir: [0, .2, 0]
+      - name: Stem
+        obj: Nature.Hay
+        loc:
+          from: Stem
+          dir: [0, .2, 0]
+          
+      - name: Stem
+        obj: Nature.Hay
+        loc: [-0.3, .6, -0.3]
+      - name: Stem
+        obj: Nature.Hay
+        loc:
+          from: Stem
+          dir: [0, .2, 0]
+      - name: Stem
+        obj: Nature.Hay
+        loc:
+          from: Stem
+          dir: [0, .2, 0]
+          
+      - name: Stem
+        obj: Nature.Hay
+        loc: [0.3, .6, 0.3]
+      - name: Stem
+        obj: Nature.Hay
+        loc:
+          from: Stem
+          dir: [0, .2, 0]
+      - name: Stem
+        obj: Nature.Hay
+        loc:
+          from: Stem
+          dir: [0, .2, 0]
+      

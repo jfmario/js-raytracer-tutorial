@@ -1,0 +1,87 @@
+
+importComponents:
+  - Colors
+  - Nature
+
+define:
+  LimeGreenBanner:
+    place:
+      - name: Stick
+        obj: Nature.Stick
+        loc: [0, .6, 0]
+      - name: Stick
+        obj: Nature.Stick
+        loc:
+          from: Stick
+          dir: [0, .1, 0]
+      - name: CenterColor
+        obj: Colors.LimeGreen
+        loc:
+          from: Stick
+          dir: [.5, .6, 0]
+      - name: Color
+        obj: Colors.LimeGreen
+        loc:
+          from: CenterColor
+          dir: [-1, 0, 0]
+      - name: CenterColor
+        obj: Colors.LimeGreen
+        loc:
+          from: CenterColor
+          dir: [0, 1, 0]
+      - name: Color
+        obj: Colors.LimeGreen
+        loc:
+          from: CenterColor
+          dir: [-1, 0, 0]
+      - name: CenterColor
+        obj: Colors.LimeGreen
+        loc:
+          from: CenterColor
+          dir: [0, 1, 0]
+      - name: Color
+        obj: Colors.LimeGreen
+        loc:
+          from: CenterColor
+          dir: [-1, 0, 0]
+          
+  GrayBanner:
+    place:
+      - name: Stick
+        obj: Nature.Stick
+        loc: [0, .6, 0]
+      - name: Stick
+        obj: Nature.Stick
+        loc:
+          from: Stick
+          dir: [0, .1, 0]
+      - name: CenterColor
+        obj: Colors.Gray
+        loc:
+          from: Stick
+          dir: [.5, .6, 0]
+      - name: Color
+        obj: Colors.Gray
+        loc:
+          from: CenterColor
+          dir: [-1, 0, 0]
+      - name: CenterColor
+        obj: Colors.Gray
+        loc:
+          from: CenterColor
+          dir: [0, 1, 0]
+      - name: Color
+        obj: Colors.Gray
+        loc:
+          from: CenterColor
+          dir: [-1, 0, 0]
+      - name: CenterColor
+        obj: Colors.Gray
+        loc:
+          from: CenterColor
+          dir: [0, 1, 0]
+      - name: Color
+        obj: Colors.Gray
+        loc:
+          from: CenterColor
+          dir: [-1, 0, 0]

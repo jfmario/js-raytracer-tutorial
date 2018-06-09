@@ -1,0 +1,51 @@
+
+importComponents:
+  - Nature
+  - PreciousStones
+  
+define:
+  AmethystStone:
+    place:
+      - name: Amethyst
+        obj: PreciousStones.Amethyst
+        loc: [0, 1, 0]
+  DiamondStone:
+    place:
+      - name: Diamond
+        obj: PreciousStones.Diamond
+        loc: [0, 1, 0]
+  EmeraldStone:
+    place:
+      - name: Emerald
+        obj: PreciousStones.Emerald
+        loc: [0, 1, 0]
+  GoldStone:
+    place:
+      - name: Gold
+        obj: PreciousStones.Gold
+        loc: [0, 1, 0]
+  IceCube:
+    place:
+      - name: Ice
+        obj: Nature.Ice
+        loc: [0, 1, 0]
+  ObsidianStone:
+    place:
+      - name: Obsidian
+        obj: PreciousStones.Obsidian
+        loc: [0, 1, 0]
+  RubyStone:
+    place:
+      - name: Ruby
+        obj: PreciousStones.Ruby
+        loc: [0, 1, 0]
+  SapphireStone:
+    place:
+      - name: Sapphire
+        obj: PreciousStones.Sapphire
+        loc: [0, 1, 0]
+  SilverStone:
+    place:
+      - name: Silver
+        obj: PreciousStones.Silver
+        loc: [0, 1, 0]

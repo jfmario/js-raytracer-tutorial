@@ -1,0 +1,18 @@
+
+importComponents:
+  - Lights
+  - Utils
+
+define:
+  LightAndMirror:
+    place:
+      
+      - name: BasicLight
+        obj: Lights.WhiteLight
+        loc: [-2, 10, 0]
+        
+          
+      - name: Mirror (Test)
+        obj: Utils.MirrorBall
+        loc: [0, 6, 0]
+  

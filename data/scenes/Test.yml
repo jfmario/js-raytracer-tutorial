@@ -1,0 +1,92 @@
+
+importObjects:
+  - Banners
+  - Lights
+  - Plants
+  - SingleSpheres
+  - Structures
+  - Tests
+
+layTurf:
+  type: brick
+  x: 10
+  z: 10
+  
+place:
+  
+  - name: Light
+    obj: Lights.WhiteLight
+    loc: [ -4, 10, 0 ]
+    
+  - name: Tree
+    obj: Plants.Tree
+    loc: [0, 0, 0]
+    
+  - name: Diamond
+    obj: SingleSpheres.DiamondStone
+    loc: [-5, 0, -5]
+    
+  - name: Emerald
+    obj: SingleSpheres.EmeraldStone
+    loc: [-5, 0, -3]
+    
+  - name: Gold
+    obj: SingleSpheres.GoldStone
+    loc: [-5, 0, -1]
+    
+  - name: Silver
+    obj: SingleSpheres.SilverStone
+    loc: [-5, 0, 1]
+    
+  - name: Sapphire
+    obj: SingleSpheres.SapphireStone
+    loc: [-5, 0, 3]
+    
+  - name: Ice
+    obj: SingleSpheres.IceCube
+    loc: [-5, 0, 5]
+    
+  - name: Obsidian
+    obj: SingleSpheres.ObsidianStone
+    loc: [-4, 0, -4]
+    
+  - name: Amethyst
+    obj: SingleSpheres.AmethystStone
+    loc: [-4, 0, -2]
+    
+  - name: Ruby
+    obj: SingleSpheres.RubyStone
+    loc: [-4, 0, 0]
+    
+  - name: FlowerRed
+    obj: Plants.RedFlower
+    loc: [-4, 0, 2]
+    
+  - name: LimeBanner
+    obj: Banners.GrayBanner
+    loc: [-3, 0, 4]
+    
+  - name: Cactus
+    obj: Plants.Cactus
+    loc: [-2, 0, -4]
+    
+  - name: Grass
+    obj: Plants.GrassPatch
+    loc: [-2, 0, -2]
+    
+  - name: Bush
+    obj: Plants.Bush
+    loc: [-2, 0, 0]
+    
+  - name: Wheat
+    obj: Plants.WheatPatch
+    loc: [-2, 0, 2]
+    
+  - name: Wheat
+    obj: Structures.ZWall
+    loc: [1, 0, -5]
+  - name: Wheat
+    obj: Structures.XWall
+    loc: [2, 0, -5]
+    
+pictures: 6

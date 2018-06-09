@@ -1,0 +1,64 @@
+
+Amethyst:
+  size: .5
+  ambient: [.31, 0, .31]
+  diffuse: [.31, 0, .31]
+  spec: [.31, 0, .31]
+  shine: 30
+  reflect: .4
+
+Diamond:
+  size: .5
+  ambient: [.2, .5, .5]
+  diffuse: [0, 1, 1]
+  spec: [.2, 1, 1]
+  shine: 30
+  reflect: .4
+  
+Emerald:
+  size: .5
+  ambient: [.0, .5, .2]
+  diffuse: [0, 1, .4]
+  spec: [.2, 1, .4]
+  shine: 30
+  reflect: .4
+  
+Gold:
+  size: .5
+  ambient: [.5, .5, 0]
+  diffuse: [1, 1, 0]
+  spec: [1, 1, .2]
+  shine: 6
+  reflect: .6
+  
+Obsidian:
+  size: .5
+  ambient: [.05, .05, .05]
+  diffuse: [.2, .2, .2]
+  spec: [.2, .2, .2]
+  shine: 30
+  reflect: .4
+    
+Ruby:
+  size: .5
+  ambient: [.5, .0, .0]
+  diffuse: [1, 0, 0]
+  spec: [1, .2, .2]
+  shine: 30
+  reflect: .4
+  
+Silver:
+  size: .5
+  ambient: [.5, .5, .5]
+  diffuse: [.7, .7, .7]
+  spec: [.7, .7, .7]
+  shine: 6
+  reflect: .6
+  
+Sapphire:
+  size: .5
+  ambient: [0, 0, .5]
+  diffuse: [0, 0, 1]
+  spec: [.2, .2, 1]
+  shine: 30
+  reflect: .4
