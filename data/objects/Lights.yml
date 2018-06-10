@@ -1,6 +1,7 @@
 
 importComponents:
-  -  Lights
+  - Lights
+  - Nature
 
 define:
   Flame:
@@ -8,6 +9,27 @@ define:
       - name: Light
         obj: Lights.Flame
         loc: [0, 1, 0]
+  Torch:
+    place:
+      - name: Stick
+        obj: Nature.Stick
+        loc: [0, .6, 0]
+      - name: Stick
+        obj: Nature.Stick
+        loc: 
+          from: Stick
+          dir: [0, .2, 0]
+      - name: Stick
+        obj: Nature.Stick
+        loc: 
+          from: Stick
+          dir: [0, .2, 0]
+      - name: Fire
+        obj: Lights.Flame
+        loc:
+          from: Stick
+          dir: [0, .3, 0]
+    
   WhiteLight:
     place:
       - name: Light

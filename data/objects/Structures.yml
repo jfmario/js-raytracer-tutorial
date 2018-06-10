@@ -1,8 +1,147 @@
 
 importComponents:
   - Colors
+  - Nature
   
 define:
+  XFence:
+    place:
+    
+      - name: CenterPost
+        obj: Nature.Stick
+        loc: [0, .6, 0]
+      - name: CenterPostLower
+        obj: Nature.Stick
+        loc:
+          from: CenterPost
+          dir: [0, .2, 0]
+      - name: CenterPost
+        obj: Nature.Stick
+        loc:
+          from: CenterPostLower
+          dir: [0, .2, 0]
+      - name: CenterPostHigher
+        obj: Nature.Stick
+        loc:
+          from: CenterPost
+          dir: [0, .2, 0]
+      - name: CenterPost
+        obj: Nature.Stick
+        loc:
+          from: CenterPostHigher
+          dir: [0, .2, 0]
+          
+      - name: LowerLeft
+        obj: Nature.Stick
+        loc:
+          from: CenterPostLower
+          dir: [-0.2, 0, 0]
+      - name: LowerLeft
+        obj: Nature.Stick
+        loc:
+          from: LowerLeft
+          dir: [-0.2, 0, 0]
+      - name: LowerRight
+        obj: Nature.Stick
+        loc:
+          from: CenterPostLower
+          dir: [0.2, 0, 0]
+      - name: LowerRight
+        obj: Nature.Stick
+        loc:
+          from: LowerRight
+          dir: [0.2, 0, 0]
+          
+      - name: UpperLeft
+        obj: Nature.Stick
+        loc:
+          from: CenterPostHigher
+          dir: [-0.2, 0, 0]
+      - name: UpperLeft
+        obj: Nature.Stick
+        loc:
+          from: UpperLeft
+          dir: [-0.2, 0, 0]
+      - name: UpperRight
+        obj: Nature.Stick
+        loc:
+          from: CenterPostHigher
+          dir: [0.2, 0, 0]
+      - name: UpperRight
+        obj: Nature.Stick
+        loc:
+          from: UpperRight
+          dir: [0.2, 0, 0]
+      
+  ZFence:
+    place:
+    
+      - name: CenterPost
+        obj: Nature.Stick
+        loc: [0, .6, 0]
+      - name: CenterPostLower
+        obj: Nature.Stick
+        loc:
+          from: CenterPost
+          dir: [0, .2, 0]
+      - name: CenterPost
+        obj: Nature.Stick
+        loc:
+          from: CenterPostLower
+          dir: [0, .2, 0]
+      - name: CenterPostHigher
+        obj: Nature.Stick
+        loc:
+          from: CenterPost
+          dir: [0, .2, 0]
+      - name: CenterPost
+        obj: Nature.Stick
+        loc:
+          from: CenterPostHigher
+          dir: [0, .2, 0]
+          
+      - name: LowerClose
+        obj: Nature.Stick
+        loc:
+          from: CenterPostLower
+          dir: [0, 0, -0.2]
+      - name: LowerClose
+        obj: Nature.Stick
+        loc:
+          from: LowerClose
+          dir: [0, 0, -0.2]
+      - name: LowerFar
+        obj: Nature.Stick
+        loc:
+          from: CenterPostLower
+          dir: [0, 0, 0.2]
+      - name: LowerFar
+        obj: Nature.Stick
+        loc:
+          from: LowerFar
+          dir: [0, 0, 0.2]
+          
+      - name: UpperClose
+        obj: Nature.Stick
+        loc:
+          from: CenterPostHigher
+          dir: [0, 0, -0.2]
+      - name: UpperClose
+        obj: Nature.Stick
+        loc:
+          from: UpperClose
+          dir: [0, 0, -0.2]
+      - name: UpperFar
+        obj: Nature.Stick
+        loc:
+          from: CenterPostHigher
+          dir: [0, 0, 0.2]
+      - name: UpperFar
+        obj: Nature.Stick
+        loc:
+          from: UpperFar
+          dir: [0, 0, 0.2]
+     
   XWall:
     place:
       - name: Bottom

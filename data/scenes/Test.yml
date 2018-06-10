@@ -8,7 +8,7 @@ importObjects:
   - Tests
 
 layTurf:
-  type: brick
+  type: grass
   x: 10
   z: 10
   
@@ -16,7 +16,7 @@ place:
   
   - name: Light
     obj: Lights.WhiteLight
-    loc: [ -4, 10, 0 ]
+    loc: [ 4, 10, 0 ]
     
   - name: Tree
     obj: Plants.Tree
@@ -88,5 +88,33 @@ place:
   - name: Wheat
     obj: Structures.XWall
     loc: [2, 0, -5]
+    
+  - name: Fencing
+    obj: Structures.XFence
+    loc: [2, 0, 0]
+    
+  - name: Fencing
+    obj: Structures.XFence
+    loc: [3, 0, 0]
+    
+  - name: Fencing
+    obj: Structures.XFence
+    loc: [4, 0, 0]
+    
+  - name: Fencing
+    obj: Structures.ZFence
+    loc: [2, 0, 0]
+    
+  - name: Fencing
+    obj: Structures.ZFence
+    loc: [2, 0, 1]
+    
+  - name: Fencing
+    obj: Structures.ZFence
+    loc: [2, 0, 2]
+    
+  - name: torch
+    obj: Lights.Torch
+    loc: [4, 0, 2]
     
 pictures: 6

@@ -1,0 +1,32 @@
+
+importComponents:
+  - Colors
+  - Shoes
+
+define:
+  MainCharacter:
+    place:
+      - name: LeftShoe
+        obj: Shoes.WoodenShoe
+        loc: [0, .7, .3]
+      - name: RightShoe
+        obj: Shoes.WoodenShoe
+        loc: [0, .7, -0.3]
+      - name: LowerBody
+        obj: Colors.Blue
+        loc: [0, 1.2, 0]
+      - name: UpperBody
+        obj: Colors.Red
+        loc:
+          from: LowerBody
+          dir: [0, .7, 0]
+      - name: LeftHand
+        obj: Colors.S-White
+        loc:
+          from: UpperBody
+          dir: [0, 0, .7]
+      - name: RightHand
+        obj: Colors.S-White
+        loc:
+          from: UpperBody
+          dir: [0, 0, -0.7]

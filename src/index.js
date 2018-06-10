@@ -1,6 +1,3 @@
 
-const main = require('./lessons/lesson04')
 
-// main();
-
-require('./scripts/custom-scene')({ scene: "Test" });
+require('./scripts/custom-scene')({ scene: process.argv[2] });

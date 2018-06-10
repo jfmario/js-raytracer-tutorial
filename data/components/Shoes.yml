@@ -1,0 +1,7 @@
+
+WoodenShoe:
+  size: .2
+  ambient: [.5, .4, .2]
+  diffuse: [0.59, 0.44, .2]
+  spec: [.5, .44, .2]
+  shine: 5

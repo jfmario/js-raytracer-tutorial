@@ -1,0 +1,64 @@
+
+importObjects:
+  - Characters
+  - Lights
+  - Plants
+  - SingleSpheres
+  - Structures
+
+layTurf:
+  type: grass
+  x: 10
+  z: 10
+  
+place:
+
+  - name: Light
+    obj: Lights.WhiteLight
+    loc: [ 0, 10, 3 ]
+
+  - name: MainCharacter
+    obj: Characters.MainCharacter
+    loc: [0, 0, 0]
+    
+  - name: Torch
+    obj: Lights.Torch
+    loc: [-3, 0, -3]
+    
+  - name: Tree
+    obj: Plants.Tree
+    loc: [-3, 0, 0]
+    
+  - name: SilverBall
+    obj: SingleSpheres.SilverStone
+    loc: [-3, 0, 3]
+    
+  - name: Fencing
+    obj: Structures.XFence
+    loc: [0, 0, -3]
+  
+  - name: Fencing
+    obj: Structures.XFence
+    loc: [1, 0, -3]
+    
+  - name: Fencing
+    obj: Structures.XFence
+    loc: [2, 0, -3]
+    
+  - name: Fencing
+    obj: Structures.ZFence
+    loc: [0, 0, -3]
+  
+  - name: Fencing
+    obj: Structures.ZFence
+    loc: [0, 0, -2]
+    
+  - name: Fencing
+    obj: Structures.ZFence
+    loc: [0, 0, -1]
+    
+  - name: SilverBall
+    obj: SingleSpheres.SilverStone
+    loc: [3, 0, 3]
+    
+pictures: 6

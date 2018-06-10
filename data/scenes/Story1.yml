@@ -1,0 +1,21 @@
+
+importObjects:
+  - Characters
+  - Lights
+
+layTurf:
+  type: grass
+  x: 5
+  z: 5
+  
+place:
+
+  - name: Light
+    obj: Lights.WhiteLight
+    loc: [ 0, 10, 3 ]
+  
+  - name: MainCharacter
+    obj: Characters.MainCharacter
+    loc: [0, 0, 0]
+    
+pictures: 6
